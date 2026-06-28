@@ -23,7 +23,6 @@ export const useAuth = () => {
       setIsAuthenticated(true);
     } catch (err: any) {
       setError(err.response?.data?.error || 'Login failed');
-      throw err;
     }
   };
 
@@ -36,7 +35,6 @@ export const useAuth = () => {
       setIsAuthenticated(true);
     } catch (err: any) {
       setError(err.response?.data?.error || 'Registration failed');
-      throw err;
     }
   };
 
