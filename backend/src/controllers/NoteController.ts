@@ -26,7 +26,7 @@ export class NoteController {
 
   async deleteNote(req: AuthRequest, res: Response) {
     try {
-      const noteId = parseInt(req.params.id);
+      const noteId = parseInt(req.params.id as string);
       await noteService.deleteNote(noteId, req.user.id, req.user.role);
       res.json({ message: 'Note deleted successfully' });
     } catch (error: any) {
@@ -36,7 +36,7 @@ export class NoteController {
 
   async shareNote(req: AuthRequest, res: Response) {
     try {
-      const noteId = parseInt(req.params.id);
+      const noteId = parseInt(req.params.id as string);
       const { sharedWithUserId, permissionLevelId } = req.body;
       await noteService.shareNote(noteId, sharedWithUserId, permissionLevelId, req.user.id);
       res.json({ message: 'Note shared successfully' });

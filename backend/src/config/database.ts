@@ -17,6 +17,13 @@ class Database {
       port: Number(process.env.DB_PORT) || 1433,
       logging: false,
       dialectOptions: {
+        authentication: {
+          type: 'default',
+          options: {
+            userName: process.env.DB_USER || 'sa',
+            password: process.env.DB_PASSWORD || 'YourStrong!Passw0rd',
+          }
+        },
         options: {
           encrypt: false,
           trustServerCertificate: true,

@@ -24,6 +24,7 @@ export const syncDatabase = async () => {
 
   } catch (error) {
     console.error('Unable to connect to the database:', error);
+    throw error;
   }
 };
 
