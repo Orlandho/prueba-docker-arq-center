@@ -5,10 +5,10 @@ import { User } from './User';
 import { PermissionLevel } from './PermissionLevel';
 
 export class NoteShare extends Model {
-  public note_id!: number;
-  public shared_with_user_id!: number;
-  public permission_level_id!: number;
-  public is_active!: boolean;
+  declare note_id: number;
+  declare shared_with_user_id: number;
+  declare permission_level_id: number;
+  declare is_active: boolean;
 }
 
 NoteShare.init(

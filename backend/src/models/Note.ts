@@ -3,11 +3,11 @@ import { dbInstance } from '../config/database';
 import { User } from './User';
 
 export class Note extends Model {
-  public id!: number;
-  public title!: string;
-  public file_path!: string;
-  public owner_id!: number;
-  public is_active!: boolean;
+  declare id: number;
+  declare title: string;
+  declare file_path: string;
+  declare owner_id: number;
+  declare is_active: boolean;
 }
 
 Note.init(

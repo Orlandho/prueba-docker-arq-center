@@ -12,7 +12,7 @@ export const syncDatabase = async () => {
     console.log('Connection to SQL Express has been established successfully.');
     
     // Sync models
-    await dbInstance.sync({ alter: true });
+    await dbInstance.sync();
     console.log('Database synced successfully.');
     
     // Seed default catalogs if empty

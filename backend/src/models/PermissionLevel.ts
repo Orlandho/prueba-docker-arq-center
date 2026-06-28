@@ -2,9 +2,9 @@ import { Model, DataTypes } from 'sequelize';
 import { dbInstance } from '../config/database';
 
 export class PermissionLevel extends Model {
-  public id!: number;
-  public name!: string;
-  public is_active!: boolean;
+  declare id: number;
+  declare name: string;
+  declare is_active: boolean;
 }
 
 PermissionLevel.init(

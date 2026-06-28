@@ -2,12 +2,12 @@ import { Model, DataTypes } from 'sequelize';
 import { dbInstance } from '../config/database';
 
 export class AuditLog extends Model {
-  public id!: number;
-  public action!: string;
-  public entity!: string;
-  public entity_id!: number;
-  public user_id!: number;
-  public details!: string;
+  declare id: number;
+  declare action: string;
+  declare entity: string;
+  declare entity_id: number;
+  declare user_id: number;
+  declare details: string;
 }
 
 AuditLog.init(

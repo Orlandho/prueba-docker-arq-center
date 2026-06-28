@@ -3,11 +3,11 @@ import { dbInstance } from '../config/database';
 import { Role } from './Role';
 
 export class User extends Model {
-  public id!: number;
-  public username!: string;
-  public password_hash!: string;
-  public role_id!: number;
-  public is_active!: boolean;
+  declare id: number;
+  declare username: string;
+  declare password_hash: string;
+  declare role_id: number;
+  declare is_active: boolean;
 }
 
 User.init(
