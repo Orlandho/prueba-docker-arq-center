@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: notes_db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  backend:
+    build: 
+      context: ./backend
+    container_name: notes_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=sa
+      - DB_PASSWORD=YourStrong!Passw0rd
+      - DB_NAME=notes_db
+      - JWT_SECRET=SuperSecretKey123!
+      - PORT=3000
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/uploads:/app/uploads
+    depends_on:
+      - db
+    # Usamos esto temporalmente en desarrollo para que nodemon/ts-node funcione con los volúmenes montados
+    command: npm run dev
+
+volumes:
+  sql_data:
